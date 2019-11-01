@@ -1,25 +1,26 @@
+/**
+ * TematicaEnum.java
+ */
 package com.hbt.semillero.entidades;
 
 /**
- * Enumerado para representar las posibles tematicas que tiene un comic.
+ * <b>Descripción:<b> Clase que determina los posibles valores de tematicas en
+ * comics <b>Caso de Uso:<b>
  * 
  * @author Angye Daniela Torres.
- *
+ * @version
  */
 public enum TematicaEnum {
 
 	AVENTURAS("enum.tematica.aventuras"), BELICO("enum.tematica.belico"), HUMORISTICO("enum.tematica.humoristico"),
 	DEPORTIVO("enum.tematica.deportivo"), FANTASTICO("enum.tematica.fantastico"),
-	CIENCIA_FICCION("enum.tematica.ciencia_ficcion"), HISTORICO("enum.tematica.historico"),
+	CIENCIA_FICCION("enum.tematica.cienciaficcion"), HISTORICO("enum.tematica.historico"),
 	HORROR("enum.tematica.horror");
 
-	/**
-	 * Variable que representa el codigo de cada temática.
-	 */
 	private String codigoMensaje;
 
 	/**
-	 * Constructor
+	 * Constructor de la clase.
 	 * 
 	 * @param codigoMensaje
 	 */
@@ -28,18 +29,18 @@ public enum TematicaEnum {
 	}
 
 	/**
-	 * Obtener codigo del mensaje.
+	 * Metodo encargado de retornar el valor del atributo codigoMensaje
 	 * 
-	 * @return
+	 * @return El codigoMensaje asociado a la clase
 	 */
 	public String getCodigoMensaje() {
 		return codigoMensaje;
 	}
 
 	/**
-	 * Cambiar el codigo del mensaje.
+	 * Metodo encargado de modificar el valor del atributo codigoMensaje
 	 * 
-	 * @param codigoMensaje
+	 * @param codigoMensaje El nuevo codigoMensaje a modificar.
 	 */
 	public void setCodigoMensaje(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;

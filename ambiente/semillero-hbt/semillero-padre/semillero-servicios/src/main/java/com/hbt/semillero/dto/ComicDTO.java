@@ -5,10 +5,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
- * Clase que determina la representación de un Comic DTO.
+ * 
+ * <b>Descripción:<b> Clase que determina la representacion de un comic <b>Caso
+ * de Uso:<b>
  * 
  * @author Angye Daniela Torres Veloza.
- * @version 1.
+ * @version 1
  */
 public class ComicDTO implements Serializable {
 
@@ -18,75 +20,76 @@ public class ComicDTO implements Serializable {
 	private static final long serialVersionUID = -1183728090299162575L;
 
 	/**
-	 * Id del título.
+	 * identificador del comic
 	 */
-	private String scid;
+	private String id;
 
 	/**
-	 * Variable que representa el nombre del comic.
+	 * nombre o titulo del comic
 	 */
 	private String nombre;
 
 	/**
-	 * Variable que representa el editorial.
+	 * editorial que desarrollo el comic
 	 */
 	private String editorial;
 
 	/**
-	 * Variable que representa la temática.
+	 * tematica del comic
 	 */
 	private String tematica;
 
 	/**
-	 * Variable que representa la colección.
+	 * coleccion a la que pertenece el comic
 	 */
 	private String coleccion;
 
 	/**
-	 * Variable que representa el precio.
+	 * numero de paginas del comic
+	 */
+	private Integer numeroPaginas;
+
+	/**
+	 * precio del comic
 	 */
 	private BigDecimal precio;
 
 	/**
-	 * Variable que representa los autores.
+	 * autores del comic
 	 */
 	private String autores;
 
 	/**
-	 * Variable que representa el color.
+	 * si es positivo es a color sino a blanco y negro
 	 */
-	private boolean color;
+	private Boolean color;
 
 	/**
-	 * Variable que represnta la fecha de venta.
+	 * fecha de venta del comic
 	 */
 	private LocalDate fechaVenta;
 
-	/**
-	 * Variable que represnta el estado.
-	 */
-	private String estado; // TODO
-
-	/**
-	 * Variable que representa la cantidad de comic.
-	 */
+	// TODO
+	private String estado;
+	// TODO
 	private Long cantidad;
 
 	/**
-	 * Metodo contructor vacio.
+	 * Constructor de la clase.
 	 */
 	public ComicDTO() {
 
 	}
 
 	/**
-	 * Metodo constructor con todos los parametros de la clase.
+	 * Constructor de la clase.
 	 * 
-	 * @param scid
+	 * @param id
 	 * @param nombre
 	 * @param editorial
 	 * @param tematica
 	 * @param coleccion
+	 * @param numeroPaginas
 	 * @param precio
 	 * @param autores
 	 * @param color
@@ -94,13 +97,15 @@ public class ComicDTO implements Serializable {
 	 * @param estado
 	 * @param cantidad
 	 */
-	public ComicDTO(String scid, String nombre, String editorial, String tematica, String coleccion, BigDecimal precio,
-			String autores, boolean color, LocalDate fechaVenta, String estado, Long cantidad) {
-		this.scid = scid;
+	public ComicDTO(String id, String nombre, String editorial, String tematica, String coleccion,
+			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
+			String estado, Long cantidad) {
+		this.id = id;
 		this.nombre = nombre;
 		this.editorial = editorial;
 		this.tematica = tematica;
 		this.coleccion = coleccion;
+		this.numeroPaginas = numeroPaginas;
 		this.precio = precio;
 		this.autores = autores;
 		this.color = color;
@@ -110,209 +115,227 @@ public class ComicDTO implements Serializable {
 	}
 
 	/**
-	 * Metodo constructor con id y nombre.
+	 * Constructor de la clase.
 	 * 
-	 * @param scid
+	 * @param id
 	 * @param nombre
 	 */
-	public ComicDTO(String scid, String nombre) {
-		this.scid = scid;
+	public ComicDTO(String id, String nombre) {
+		this.id = id;
 		this.nombre = nombre;
 	}
 
 	/**
-	 * Get Id.
+	 * Metodo encargado de retornar el valor del atributo id
 	 * 
-	 * @return
+	 * @return El id asociado a la clase
 	 */
-	public String getScid() {
-		return scid;
+	public String getId() {
+		return id;
 	}
 
 	/**
-	 * Sed Id.
+	 * Metodo encargado de modificar el valor del atributo id
 	 * 
-	 * @param scid
+	 * @param id El nuevo id a modificar.
 	 */
-	public void setScid(String scid) {
-		this.scid = scid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	/**
-	 * Get Nombre.
+	 * Metodo encargado de retornar el valor del atributo nombre
 	 * 
-	 * @return
+	 * @return El nombre asociado a la clase
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * Set Nombre.
+	 * Metodo encargado de modificar el valor del atributo nombre
 	 * 
-	 * @param nombre
+	 * @param nombre El nuevo nombre a modificar.
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * Get Editorial.
+	 * Metodo encargado de retornar el valor del atributo editorial
 	 * 
-	 * @return
+	 * @return El editorial asociado a la clase
 	 */
 	public String getEditorial() {
 		return editorial;
 	}
 
 	/**
-	 * Set Editorial.
+	 * Metodo encargado de modificar el valor del atributo editorial
 	 * 
-	 * @param editorial
+	 * @param editorial El nuevo editorial a modificar.
 	 */
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
 	}
 
 	/**
-	 * Get TematicaEnum
+	 * Metodo encargado de retornar el valor del atributo tematica
 	 * 
-	 * @return
+	 * @return El tematica asociado a la clase
 	 */
-	public String getTematicaEnum() {
+	public String getTematica() {
 		return tematica;
 	}
 
 	/**
-	 * Set Temática Enum
+	 * Metodo encargado de modificar el valor del atributo tematica
 	 * 
-	 * @param tematicaEnum
+	 * @param tematica El nuevo tematica a modificar.
 	 */
-	public void setTematicaEnum(String tematicaEnum) {
-		this.tematica = tematicaEnum;
+	public void setTematica(String tematica) {
+		this.tematica = tematica;
 	}
 
 	/**
-	 * Get colección
+	 * Metodo encargado de retornar el valor del atributo coleccion
 	 * 
-	 * @return
+	 * @return El coleccion asociado a la clase
 	 */
 	public String getColeccion() {
 		return coleccion;
 	}
 
 	/**
-	 * Set Colección
+	 * Metodo encargado de modificar el valor del atributo coleccion
 	 * 
-	 * @param coleccion
+	 * @param coleccion El nuevo coleccion a modificar.
 	 */
 	public void setColeccion(String coleccion) {
 		this.coleccion = coleccion;
 	}
 
 	/**
-	 * Get Precio
+	 * Metodo encargado de retornar el valor del atributo numeroPaginas
 	 * 
-	 * @return
+	 * @return El numeroPaginas asociado a la clase
+	 */
+	public Integer getNumeroPaginas() {
+		return numeroPaginas;
+	}
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo numeroPaginas
+	 * 
+	 * @param numeroPaginas El nuevo numeroPaginas a modificar.
+	 */
+	public void setNumeroPaginas(Integer numeroPaginas) {
+		this.numeroPaginas = numeroPaginas;
+	}
+
+	/**
+	 * Metodo encargado de retornar el valor del atributo precio
+	 * 
+	 * @return El precio asociado a la clase
 	 */
 	public BigDecimal getPrecio() {
 		return precio;
 	}
 
 	/**
-	 * Set precio
+	 * Metodo encargado de modificar el valor del atributo precio
 	 * 
-	 * @param precio
+	 * @param precio El nuevo precio a modificar.
 	 */
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 
 	/**
-	 * Get Autores.
+	 * Metodo encargado de retornar el valor del atributo autores
 	 * 
-	 * @return
+	 * @return El autores asociado a la clase
 	 */
 	public String getAutores() {
 		return autores;
 	}
 
 	/**
-	 * Set Autores.
+	 * Metodo encargado de modificar el valor del atributo autores
 	 * 
-	 * @param autores
+	 * @param autores El nuevo autores a modificar.
 	 */
 	public void setAutores(String autores) {
 		this.autores = autores;
 	}
 
 	/**
-	 * Obtener el color.
+	 * Metodo encargado de retornar el valor del atributo color
 	 * 
-	 * @return
+	 * @return El color asociado a la clase
 	 */
-	public boolean isColor() {
+	public Boolean getColor() {
 		return color;
 	}
 
 	/**
-	 * Cambiar el color.
+	 * Metodo encargado de modificar el valor del atributo color
 	 * 
-	 * @param color
+	 * @param color El nuevo color a modificar.
 	 */
-	public void setColor(boolean color) {
+	public void setColor(Boolean color) {
 		this.color = color;
 	}
 
 	/**
-	 * Get Fecha de Venta
+	 * Metodo encargado de retornar el valor del atributo fechaVenta
 	 * 
-	 * @return
+	 * @return El fechaVenta asociado a la clase
 	 */
 	public LocalDate getFechaVenta() {
 		return fechaVenta;
 	}
 
 	/**
-	 * Set Fecha de Venta
+	 * Metodo encargado de modificar el valor del atributo fechaVenta
 	 * 
-	 * @param fechaVenta
+	 * @param fechaVenta El nuevo fechaVenta a modificar.
 	 */
 	public void setFechaVenta(LocalDate fechaVenta) {
 		this.fechaVenta = fechaVenta;
 	}
 
 	/**
-	 * Get Estado
+	 * Metodo encargado de retornar el valor del atributo estado
 	 * 
-	 * @return
+	 * @return El estado asociado a la clase
 	 */
 	public String getEstado() {
 		return estado;
 	}
 
 	/**
-	 * Set Estado
+	 * Metodo encargado de modificar el valor del atributo estado
 	 * 
-	 * @param estado
+	 * @param estado El nuevo estado a modificar.
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
 	/**
-	 * Get Cantidad
+	 * Metodo encargado de retornar el valor del atributo cantidad
 	 * 
-	 * @return
+	 * @return El cantidad asociado a la clase
 	 */
 	public Long getCantidad() {
 		return cantidad;
 	}
 
 	/**
-	 * Set Cantidad.
+	 * Metodo encargado de modificar el valor del atributo cantidad
 	 * 
-	 * @param cantidad
+	 * @param cantidad El nuevo cantidad a modificar.
 	 */
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;

@@ -1,44 +1,45 @@
+/**
+ * EstadoEnum.java
+ */
 package com.hbt.semillero.entidades;
 
 /**
- * Respresenta el estado Activo e Inactivo.
+ * <b>Descripción:<b> Clase que determina los posibles valores de tematicas en
+ * comics <b>Caso de Uso:<b>
  * 
- * @author Angye Daniela Torres
- *
+ * @author Angye Daniela Torres.
+ * @version
  */
 public enum EstadoEnum {
 
 	ACTIVO("enum.estado.activo"), INACTIVO("enum.estado.inactivo");
 
-	/**
-	 * Valor de cada enumerado.
-	 */
-	private String codigoEstado;
+	private String codigoMensaje;
 
 	/**
-	 * Constructor unico.
+	 * Constructor de la clase.
 	 * 
-	 * @param codigoEstado
+	 * @param codigoMensaje
 	 */
-	private EstadoEnum(String codigoEstado) {
-		this.codigoEstado = codigoEstado;
+	private EstadoEnum(String codigoMensaje) {
+		this.codigoMensaje = codigoMensaje;
 	}
 
 	/**
-	 * Obtener el codigo del estado.
+	 * Metodo encargado de retornar el valor del atributo codigoMensaje
 	 * 
-	 * @return
+	 * @return El codigoMensaje asociado a la clase
 	 */
-	public String getCodigoEstado() {
-		return codigoEstado;
+	public String getCodigoMensaje() {
+		return codigoMensaje;
 	}
 
 	/**
-	 * Cambiar el codigo del estado.
+	 * Metodo encargado de modificar el valor del atributo codigoMensaje
 	 * 
-	 * @param codigoEstado
+	 * @param codigoMensaje El nuevo codigoMensaje a modificar.
 	 */
-	public void setCodigoEstado(String codigoEstado) {
-		this.codigoEstado = codigoEstado;
+	public void setCodigoMensaje(String codigoMensaje) {
+		this.codigoMensaje = codigoMensaje;
 	}
 }

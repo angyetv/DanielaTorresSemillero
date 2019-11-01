@@ -1,3 +1,6 @@
+/**
+ * Comic.java
+ */
 package com.hbt.semillero.entidades;
 
 import java.io.Serializable;
@@ -15,120 +18,44 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * Clase que representa un comic.
+ * <b>Descripción:<b> Clase que determina la entidad comic <b>Caso de Uso:<b>
  * 
- * @author Angye Daniela Torres Veloza.
- * @version 1.
+ * @author Angye Daniela Torres
+ * @version
  */
 @Entity
 @Table(name = "COMIC")
 public class Comic implements Serializable {
 
-	private static final long serialVersionUID = 4322034079745146450L;
-
-	/**
-	 * Id del comic.
-	 */
 	private String id;
-
-	/**
-	 * Representa el nombre.
-	 */
 	private String nombre;
-
-	/**
-	 * Determina el editorial.
-	 */
 	private String editorial;
-
-	/**
-	 * Determina la temática especifica de un Comic.
-	 */
 	private TematicaEnum tematicaEnum;
-
-	/**
-	 * Determina la colección.
-	 */
 	private String coleccion;
-
-	/**
-	 * Determina el numero de paginas.
-	 */
 	private Integer numeroPaginas;
-
-	/**
-	 * Determina el precio.
-	 */
 	private BigDecimal precio;
-
-	/**
-	 * Determina los autores.
-	 */
 	private String autores;
-
-	/**
-	 * Determina el color.
-	 */
 	private Boolean color;
-
-	/**
-	 * Determina la fecha de venta.
-	 */
 	private LocalDate fechaVenta;
-
-	/**
-	 * Determina el estado activo e inactivo.
-	 */
 	private EstadoEnum estadoEnum;
-
-	/**
-	 * Determina la cantidad.
-	 */
 	private Long cantidad;
 
 	/**
-	 * Constructor vacio.
+	 * Atributo que determina
+	 */
+	private static final long serialVersionUID = 4322034079745146450L;
+
+	/**
+	 * Constructor de la clase.
 	 */
 	public Comic() {
+		super();
 	}
 
 	/**
-	 * Constructor con todos los atributos de la clase.
+	 * Metodo encargado de retornar el valor del atributo id
 	 * 
-	 * @param id
-	 * @param nombre
-	 * @param editorial
-	 * @param tematicaEnum
-	 * @param coleccion
-	 * @param numeroPaginas
-	 * @param precio
-	 * @param autores
-	 * @param color
-	 * @param fechaVenta
-	 * @param estadoEnum
-	 * @param cantidad
-	 */
-	public Comic(String id, String nombre, String editorial, TematicaEnum tematicaEnum, String coleccion,
-			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
-			EstadoEnum estadoEnum, Long cantidad) {
-		this.id = id;
-		this.nombre = nombre;
-		this.editorial = editorial;
-		this.tematicaEnum = tematicaEnum;
-		this.coleccion = coleccion;
-		this.numeroPaginas = numeroPaginas;
-		this.precio = precio;
-		this.autores = autores;
-		this.color = color;
-		this.fechaVenta = fechaVenta;
-		this.estadoEnum = estadoEnum;
-		this.cantidad = cantidad;
-	}
-
-	/**
-	 * Metodo para obtener el id.
-	 * 
-	 * @return
+	 * @return El id asociado a la clase
 	 */
 	@Id
 	@Column(name = "SCID")
@@ -138,14 +65,19 @@ public class Comic implements Serializable {
 		return id;
 	}
 
+	/**
+	 * Metodo encargado de modificar el valor del atributo id
+	 * 
+	 * @param id El nuevo id a modificar.
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
-	 * Metodo para obtener el nombre.
+	 * Metodo encargado de retornar el valor del atributo nombre
 	 * 
-	 * @return
+	 * @return El nombre asociado a la clase
 	 */
 	@Column(name = "SCNOMBRE")
 	public String getNombre() {
@@ -153,18 +85,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para editar el nombre.
+	 * Metodo encargado de modificar el valor del atributo nombre
 	 * 
-	 * @param nombre
+	 * @param nombre El nuevo nombre a modificar.
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * Metodo para obtener el editorial.
+	 * Metodo encargado de retornar el valor del atributo editorial
 	 * 
-	 * @return
+	 * @return El editorial asociado a la clase
 	 */
 	@Column(name = "SCEDITORIAL")
 	public String getEditorial() {
@@ -172,57 +104,57 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para editar el editorial.
+	 * Metodo encargado de modificar el valor del atributo editorial
 	 * 
-	 * @return
+	 * @param editorial El nuevo editorial a modificar.
 	 */
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
 	}
 
 	/**
-	 * Metodo para obtener la tematica.
+	 * Metodo encargado de retornar el valor del atributo tematicaEnum
 	 * 
-	 * @return
+	 * @return El tematicaEnum asociado a la clase
 	 */
-	@Column(name = "SCTEMATICA")
 	@Enumerated(value = EnumType.STRING)
+	@Column(name = "SCTEMATICA")
 	public TematicaEnum getTematicaEnum() {
 		return tematicaEnum;
 	}
 
 	/**
-	 * Metodo para editar la Temática.
+	 * Metodo encargado de modificar el valor del atributo tematicaEnum
 	 * 
-	 * @param nombre
+	 * @param tematicaEnum El nuevo tematicaEnum a modificar.
 	 */
 	public void setTematicaEnum(TematicaEnum tematicaEnum) {
 		this.tematicaEnum = tematicaEnum;
 	}
 
 	/**
-	 * Metodo para obtener la colección.
+	 * Metodo encargado de retornar el valor del atributo coleccion
 	 * 
-	 * @return
+	 * @return El coleccion asociado a la clase
 	 */
-	@Column(name = "SCCOLECTION")
+	@Column(name = "SCCOLECCION")
 	public String getColeccion() {
 		return coleccion;
 	}
 
 	/**
-	 * Metodo para editar la colección.
+	 * Metodo encargado de modificar el valor del atributo coleccion
 	 * 
-	 * @param coleccion
+	 * @param coleccion El nuevo coleccion a modificar.
 	 */
 	public void setColeccion(String coleccion) {
 		this.coleccion = coleccion;
 	}
 
 	/**
-	 * Metodo para obtener el numero de paginas.
+	 * Metodo encargado de retornar el valor del atributo numeroPaginas
 	 * 
-	 * @return
+	 * @return El numeroPaginas asociado a la clase
 	 */
 	@Column(name = "SCNUMEROPAGINAS")
 	public Integer getNumeroPaginas() {
@@ -230,18 +162,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para ediar el numero de paginas.
+	 * Metodo encargado de modificar el valor del atributo numeroPaginas
 	 * 
-	 * @param numeroPaginas
+	 * @param numeroPaginas El nuevo numeroPaginas a modificar.
 	 */
 	public void setNumeroPaginas(Integer numeroPaginas) {
 		this.numeroPaginas = numeroPaginas;
 	}
 
 	/**
-	 * Metodo para obtener el precio.
+	 * Metodo encargado de retornar el valor del atributo precio
 	 * 
-	 * @return
+	 * @return El precio asociado a la clase
 	 */
 	@Column(name = "SCPRECIO")
 	public BigDecimal getPrecio() {
@@ -249,18 +181,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar el precio.
+	 * Metodo encargado de modificar el valor del atributo precio
 	 * 
-	 * @param nombre
+	 * @param precio El nuevo precio a modificar.
 	 */
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 
 	/**
-	 * Metodo para obtener los autores.
+	 * Metodo encargado de retornar el valor del atributo autores
 	 * 
-	 * @return
+	 * @return El autores asociado a la clase
 	 */
 	@Column(name = "SCAUTORES")
 	public String getAutores() {
@@ -268,18 +200,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar los autores.
+	 * Metodo encargado de modificar el valor del atributo autores
 	 * 
-	 * @param nombre
+	 * @param autores El nuevo autores a modificar.
 	 */
 	public void setAutores(String autores) {
 		this.autores = autores;
 	}
 
 	/**
-	 * Metodo para obtener el color.
+	 * Metodo encargado de retornar el valor del atributo color
 	 * 
-	 * @return
+	 * @return El color asociado a la clase
 	 */
 	@Column(name = "SCCOLOR")
 	public Boolean getColor() {
@@ -287,18 +219,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar el color.
+	 * Metodo encargado de modificar el valor del atributo color
 	 * 
-	 * @param nombre
+	 * @param color El nuevo color a modificar.
 	 */
 	public void setColor(Boolean color) {
 		this.color = color;
 	}
 
 	/**
-	 * Metodo para obtener la fecha de venta.
+	 * Metodo encargado de retornar el valor del atributo fechaVenta
 	 * 
-	 * @return
+	 * @return El fechaVenta asociado a la clase
 	 */
 	@Column(name = "SCFECHA_VENTA")
 	public LocalDate getFechaVenta() {
@@ -306,18 +238,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar la fecha de venta.
+	 * Metodo encargado de modificar el valor del atributo fechaVenta
 	 * 
-	 * @param nombre
+	 * @param fechaVenta El nuevo fechaVenta a modificar.
 	 */
 	public void setFechaVenta(LocalDate fechaVenta) {
 		this.fechaVenta = fechaVenta;
 	}
 
 	/**
-	 * Metodo para obtener el estado del enumerado.
+	 * Metodo encargado de retornar el valor del atributo estadoEnum
 	 * 
-	 * @return
+	 * @return El estadoEnum asociado a la clase
 	 */
 	@Column(name = "SCESTADO")
 	public EstadoEnum getEstadoEnum() {
@@ -325,18 +257,18 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar el estado activo o inactivo.
+	 * Metodo encargado de modificar el valor del atributo estadoEnum
 	 * 
-	 * @param nombre
+	 * @param estadoEnum El nuevo estadoEnum a modificar.
 	 */
 	public void setEstadoEnum(EstadoEnum estadoEnum) {
 		this.estadoEnum = estadoEnum;
 	}
 
 	/**
-	 * Metodo para obtener la cantidad.
+	 * Metodo encargado de retornar el valor del atributo cantidad
 	 * 
-	 * @return
+	 * @return El cantidad asociado a la clase
 	 */
 	@Column(name = "SCCANTIDAD")
 	public Long getCantidad() {
@@ -344,16 +276,16 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo para cambiar la cantindad.
+	 * Metodo encargado de modificar el valor del atributo cantidad
 	 * 
-	 * @param nombre
+	 * @param cantidad El nuevo cantidad a modificar.
 	 */
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;
 	}
 
 	/**
-	 * Método toString con todos los atributos de la clase.
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
@@ -364,7 +296,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo hasCode con todos los atrubutos de la clase.
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -386,7 +318,7 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo Equals con todos los atributos de la clase.
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {

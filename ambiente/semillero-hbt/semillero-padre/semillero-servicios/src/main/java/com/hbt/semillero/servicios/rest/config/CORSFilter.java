@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CORSFilter implements Filter {
-	
-	
-    /**
+
+	/**
 	 * Constructor de la clase.
 	 */
 	public CORSFilter() {
-		 
+
 	}
 
 	/**
@@ -26,15 +25,16 @@ public class CORSFilter implements Filter {
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
 	@Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    	// Metodo init
-    }
+	public void init(FilterConfig filterConfig) throws ServletException {
+		// Metodo init
+	}
 
 	/**
 	 * 
-	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
-    @Override
+	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 			throws IOException, ServletException {
 
@@ -42,7 +42,8 @@ public class CORSFilter implements Filter {
 
 		// Authorize (allow) all domains to consume the content
 		((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "*");
-		((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "access-control-allow-headers, origin, content-type, accept, authorization, application/json, multipart/form-data, text/plain, */*");
+		((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers",
+				"access-control-allow-headers, origin, content-type, accept, authorization, application/json, multipart/form-data, text/plain, */*");
 		((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods",
 				"GET, OPTIONS, HEAD, PUT, POST");
 
@@ -59,13 +60,13 @@ public class CORSFilter implements Filter {
 		filterChain.doFilter(request, servletResponse);
 	}
 
-    /**
-     * 
-     * @see javax.servlet.Filter#destroy()
-     */
-    @Override
-    public void destroy() {
-    	// Metodo destroy
-    }
+	/**
+	 * 
+	 * @see javax.servlet.Filter#destroy()
+	 */
+	@Override
+	public void destroy() {
+		// Metodo destroy
+	}
 
 }
