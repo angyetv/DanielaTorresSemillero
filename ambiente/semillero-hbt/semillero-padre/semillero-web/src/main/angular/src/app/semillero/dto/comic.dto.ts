@@ -1,6 +1,5 @@
 /**
  * @description Clase ComicDTO que contiene la informacion de un comic
- * 
  * @author Diego Fernando Alvarez Silva <dalvarez@heinsohn.com.co>
  */
 export class ComicDTO {
@@ -65,5 +64,6 @@ export class ComicDTO {
     */
     public cantidad: number;
 
-  
+    public cantidadLista: Array<string>;
+    //this.cantidadLista = new Array<string>();
 }

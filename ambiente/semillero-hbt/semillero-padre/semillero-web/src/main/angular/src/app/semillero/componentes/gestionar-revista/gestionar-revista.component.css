@@ -1,0 +1,21 @@
+.btn-outline-danger {
+    color: red!important;
+}
+
+.btn-outline-primary {
+    color: blue!important;
+}
+
+button:hover {
+    color: white!important;
+}
+
+li {
+    width: 30%;
+    background-color: #f0f0f0;
+    font-family: Roboto, 'Helvetice New', 'Arial', sans-serif
+}
+
+.filtro {
+    width: 30%;
+}

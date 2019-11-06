@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * @description Componente que contiene la información personal. Ejercicio 1.
+ * @author Angye Daniela Torres Veloza <angye.torres@uptc.edu.co>
+ */
 @Component({
   selector: 'app-mis-datos-personales',
   templateUrl: './mis-datos-personales.component.html',
@@ -7,12 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisDatosPersonalesComponent implements OnInit {
 
-  nombre = 'Angye Daniela Torres Veloza';
-  ciudad = 'Tunja';
-  urlGitHub = 'https://github.com/angyetv/DanielaTorresSemillero.git';
+  /**
+   * Atributo que define el nombre.
+   */
+  nombre: string;
+
+  /**
+   * Atributo que define la ciudad.
+   */
+  ciudad: string;
+
+  /**
+   * Atributo que define la url de GitHub.
+   */
+  urlGitHub: string;
+
+  /**
+   * Método constructor.
+   */
   constructor() { }
 
+  /**
+   * Método Oninit.
+   */
   ngOnInit() {
+    this.nombre = 'Angye Daniela Torres Veloza';
+    this.ciudad = 'Tunja';
+    this.urlGitHub = 'https://github.com/angyetv/DanielaTorresSemillero.git';
   }
-
 }

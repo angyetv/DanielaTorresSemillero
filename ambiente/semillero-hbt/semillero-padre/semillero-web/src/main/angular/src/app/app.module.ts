@@ -12,6 +12,8 @@ import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
 import { CrearPersonaComponent } from './semillero/componentes/crear-persona/crear-persona.component';
 import { MisDatosPersonalesComponent } from './semillero/componentes/mis-datos-personales/mis-datos-personales.component';
+import { GestionarRevistaComponent } from './semillero/componentes/gestionar-revista/gestionar-revista.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
@@ -24,14 +26,16 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
     BienvenidaComponent,
     GestionarComicComponent,
     CrearPersonaComponent,
-    MisDatosPersonalesComponent
+    MisDatosPersonalesComponent,
+    GestionarRevistaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
     
   ],
   providers: [

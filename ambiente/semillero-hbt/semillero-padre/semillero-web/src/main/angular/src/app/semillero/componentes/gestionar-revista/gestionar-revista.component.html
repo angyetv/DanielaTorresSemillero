@@ -1,0 +1,63 @@
+<br><br>
+<button class="btn btn-outline-danger" (click)="borrarDeLaLista(3)">Borrar 3</button>
+<br><br>
+<div *ngIf="revistaBorrada != 'Error, no se encuentra la posicion para borrar.' && revistaBorrada" class="alert alert-success" role="alert">{{revistaBorrada}}</div>
+<div *ngIf="revistaBorrada == 'Error, no se encuentra la posicion para borrar.'" class="alert alert-danger" role="alert">{{revistaBorrada}}</div>
+<h5>Lista de Revistas</h5>
+<ul class="list-group list-group-flush">
+    <li *ngFor="let i of listaRevistas" class="list-group-item d-flex justify-content-between align-items-center">
+        {{i.nombre}}
+        <span class="badge badge-primary badge-pill">{{i.numeroPaginas}}</span>
+    </li>
+</ul>
+<br><br><button class="btn btn-outline-primary" (click)="cambiarMostrarDetalles()">Mostrar detalles de las
+    Revistas</button><br><br>
+<table *ngIf="mostrarDetalles" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Temática</th>
+            <th scope="col">Numero de Paginas</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Autores</th>
+            <th scope="col">Color</th>
+            <th scope="col">Fecha Venta</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of listaRevistas">
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.nombre}}</td>
+            <td>{{i.editorial}}</td>
+            <td>{{i.tematica}}</td>
+            <td>{{i.numeroPaginas}}</td>
+            <td>{{i.precio}}</td>
+            <td>{{i.autores}}</td>
+            <td>{{i.aColor}}</td>
+            <td>{{i.fechaVenta}}</td>
+            <td>{{i.estado}}</td>
+        </tr>
+    </tbody>
+</table>
+<pre *ngIf="mostrarDetalles">{{ listaRevistas | json}}</pre>
+<br><br>
+<h5>Filtrar revistas con un precio menor a: </h5>
+<input type="text" class="form-control-plaintext filtro" [(ngModel)]="precioMayor" name="precioMayor">
+<button class="btn btn-outline-primary" (click)="filtrarPorPrecio()">Filtrar</button><br><br>
+<ul *ngIf="listaFiltradaPorPrecio" class="list-group list-group-flush">
+    <li *ngFor="let i of listaFiltradaPorPrecio" class="list-group-item d-flex justify-content-between align-items-center">
+        {{i.nombre}}
+        <span class="badge badge-primary badge-pill">{{i.numeroPaginas}}</span>
+        <span class="badge badge-primary badge-pill">${{i.precio}}</span>
+    </li>
+</ul>
+<br>
+<svg>
+    <g>
+        <rect x="0" y="0" width="100" height="70" [attr.fill]="fillColor" (click)="changeColor()" />
+        <text x="105" y="50">Presione el cuadro.</text>
+    </g>
+</svg>
