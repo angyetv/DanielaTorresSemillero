@@ -18,16 +18,24 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * <b>Descripción:<b> Clase que determina la entidad comic <b>Caso de Uso:<b>
+ * <b>Descripción:<b> Clase que determina la entidad que permite representar la
+ * tabla "DB_SEMILLERO"."COMIC"
  * 
- * @author Angye Daniela Torres
+ * @author Angye Daniela Torres.
  * @version
  */
 @Entity
 @Table(name = "COMIC")
 public class Comic implements Serializable {
 
-	private String id;
+	/**
+	 * Serializar es pasar un Objeto a un array de bytes y viceversa. Atributo que
+	 * determina serialVersionUID es el id único que identifica una clase cuando lo
+	 * serializamos. ;ediante este id podemos identificar el objeto convertido en un
+	 * array de bytes.
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
 	private String nombre;
 	private String editorial;
 	private TematicaEnum tematicaEnum;
@@ -41,15 +49,10 @@ public class Comic implements Serializable {
 	private Long cantidad;
 
 	/**
-	 * Atributo que determina
-	 */
-	private static final long serialVersionUID = 4322034079745146450L;
-
-	/**
 	 * Constructor de la clase.
 	 */
 	public Comic() {
-		super();
+
 	}
 
 	/**
@@ -58,10 +61,10 @@ public class Comic implements Serializable {
 	 * @return El id asociado a la clase
 	 */
 	@Id
-	@Column(name = "SCID")
 	@SequenceGenerator(allocationSize = 1, name = "COMIC_SCID_GENERATOR", sequenceName = "SEQ_COMIC")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMIC_SCID_GENERATOR")
-	public String getId() {
+	@Column(name = "SCID")
+	public Long getId() {
 		return id;
 	}
 
@@ -70,7 +73,7 @@ public class Comic implements Serializable {
 	 * 
 	 * @param id El nuevo id a modificar.
 	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -113,20 +116,20 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo tematicaEnum
+	 * Metodo encargado de retornar el valor del atributo tematica
 	 * 
-	 * @return El tematicaEnum asociado a la clase
+	 * @return El tematica asociado a la clase
 	 */
-	@Enumerated(value = EnumType.STRING)
 	@Column(name = "SCTEMATICA")
+	@Enumerated(value = EnumType.STRING)
 	public TematicaEnum getTematicaEnum() {
 		return tematicaEnum;
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo tematicaEnum
+	 * Metodo encargado de modificar el valor del atributo tematica
 	 * 
-	 * @param tematicaEnum El nuevo tematicaEnum a modificar.
+	 * @param tematica El nuevo tematica a modificar.
 	 */
 	public void setTematicaEnum(TematicaEnum tematicaEnum) {
 		this.tematicaEnum = tematicaEnum;
@@ -247,19 +250,20 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * Metodo encargado de retornar el valor del atributo estadoEnum
+	 * Metodo encargado de retornar el valor del atributo estado
 	 * 
-	 * @return El estadoEnum asociado a la clase
+	 * @return El estado asociado a la clase
 	 */
 	@Column(name = "SCESTADO")
+	@Enumerated(value = EnumType.STRING)
 	public EstadoEnum getEstadoEnum() {
 		return estadoEnum;
 	}
 
 	/**
-	 * Metodo encargado de modificar el valor del atributo estadoEnum
+	 * Metodo encargado de modificar el valor del atributo estado
 	 * 
-	 * @param estadoEnum El nuevo estadoEnum a modificar.
+	 * @param estado El nuevo estado a modificar.
 	 */
 	public void setEstadoEnum(EstadoEnum estadoEnum) {
 		this.estadoEnum = estadoEnum;
@@ -285,18 +289,23 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * @see java.lang.Object#toString()
+	 * @see java.lang.Object#toString() Metodo que permite asociar al objeto un
+	 *      texto representativo
 	 */
 	@Override
 	public String toString() {
-		return "Comic [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", tematicaEnum=" + tematicaEnum
+		return "Comic [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", tematica=" + tematicaEnum
 				+ ", coleccion=" + coleccion + ", numeroPaginas=" + numeroPaginas + ", precio=" + precio + ", autores="
-				+ autores + ", color=" + color + ", fechaVenta=" + fechaVenta + ", estadoEnum=" + estadoEnum
-				+ ", cantidad=" + cantidad + "]";
+				+ autores + ", color=" + color + ", fechaVenta=" + fechaVenta + ", estado=" + estadoEnum + ", cantidad="
+				+ cantidad + "]";
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * @see java.lang.Object#hashCode() Este método viene a complementar al método
+	 *      equals y sirve para comparar objetos de una forma más rápida en
+	 *      estructuras Hash ya que únicamente nos devuelve un número entero. Cuando
+	 *      Java compara dos objetos en estructuras de tipo hash (HashMap, HashSet
+	 *      etc) primero invoca al método hashcode y luego el equals
 	 */
 	@Override
 	public int hashCode() {
@@ -318,7 +327,8 @@ public class Comic implements Serializable {
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see java.lang.Object#equals(java.lang.Object) Metodo que permite comparar
+	 *      objetos
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -391,4 +401,5 @@ public class Comic implements Serializable {
 			return false;
 		return true;
 	}
+
 }

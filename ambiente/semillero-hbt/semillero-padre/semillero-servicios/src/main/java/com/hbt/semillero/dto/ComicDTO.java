@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.hbt.semillero.entidades.EstadoEnum;
+import com.hbt.semillero.entidades.TematicaEnum;
+
 /**
  * 
  * <b>Descripción:<b> Clase que determina la representacion de un comic <b>Caso
@@ -37,7 +40,7 @@ public class ComicDTO implements Serializable {
 	/**
 	 * tematica del comic
 	 */
-	private String tematica;
+	private TematicaEnum tematicaEnum;
 
 	/**
 	 * coleccion a la que pertenece el comic
@@ -70,7 +73,7 @@ public class ComicDTO implements Serializable {
 	private LocalDate fechaVenta;
 
 	// TODO
-	private String estado;
+	private EstadoEnum estadoEnum;
 	// TODO
 	private Long cantidad;
 
@@ -97,20 +100,20 @@ public class ComicDTO implements Serializable {
 	 * @param estado
 	 * @param cantidad
 	 */
-	public ComicDTO(String id, String nombre, String editorial, String tematica, String coleccion,
+	public ComicDTO(String id, String nombre, String editorial, TematicaEnum tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
-			String estado, Long cantidad) {
+			EstadoEnum estadoEnum, Long cantidad) {
 		this.id = id;
 		this.nombre = nombre;
 		this.editorial = editorial;
-		this.tematica = tematica;
+		this.tematicaEnum = tematicaEnum;
 		this.coleccion = coleccion;
 		this.numeroPaginas = numeroPaginas;
 		this.precio = precio;
 		this.autores = autores;
 		this.color = color;
 		this.fechaVenta = fechaVenta;
-		this.estado = estado;
+		this.estadoEnum = estadoEnum;
 		this.cantidad = cantidad;
 	}
 
@@ -184,8 +187,8 @@ public class ComicDTO implements Serializable {
 	 * 
 	 * @return El tematica asociado a la clase
 	 */
-	public String getTematica() {
-		return tematica;
+	public TematicaEnum getTematicaEnum() {
+		return tematicaEnum;
 	}
 
 	/**
@@ -193,8 +196,8 @@ public class ComicDTO implements Serializable {
 	 * 
 	 * @param tematica El nuevo tematica a modificar.
 	 */
-	public void setTematica(String tematica) {
-		this.tematica = tematica;
+	public void setTematicaEnum(TematicaEnum tematicaEnum) {
+		this.tematicaEnum = tematicaEnum;
 	}
 
 	/**
@@ -310,8 +313,8 @@ public class ComicDTO implements Serializable {
 	 * 
 	 * @return El estado asociado a la clase
 	 */
-	public String getEstado() {
-		return estado;
+	public EstadoEnum getEstadoEnum() {
+		return estadoEnum;
 	}
 
 	/**
@@ -319,8 +322,8 @@ public class ComicDTO implements Serializable {
 	 * 
 	 * @param estado El nuevo estado a modificar.
 	 */
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEstadoEnum(EstadoEnum estadoEnum) {
+		this.estadoEnum = estadoEnum;
 	}
 
 	/**
