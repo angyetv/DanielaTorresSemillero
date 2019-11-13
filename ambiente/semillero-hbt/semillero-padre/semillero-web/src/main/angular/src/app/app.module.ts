@@ -4,16 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import { APP_BASE_HREF } from '@angular/common';
-import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
 import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
-import { CrearPersonaComponent } from './semillero/componentes/crear-persona/crear-persona.component';
-import { MisDatosPersonalesComponent } from './semillero/componentes/mis-datos-personales/mis-datos-personales.component';
-import { GestionarRevistaComponent } from './semillero/componentes/gestionar-revista/gestionar-revista.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CrearPersonaComponent } from './semillero/componentes/crearPersona/crear-persona-component';
+import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
+import { ConsultarComicComponent } from './semillero/componentes/consultar-comic/consultar-comic.component';
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
@@ -24,10 +23,9 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
     AppComponent,
     MenuComponent,
     BienvenidaComponent,
-    GestionarComicComponent,
     CrearPersonaComponent,
-    MisDatosPersonalesComponent,
-    GestionarRevistaComponent
+    GestionarComicComponent,
+    ConsultarComicComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +33,7 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
-    
+    ReactiveFormsModule
   ],
   providers: [
   	{ provide: APP_BASE_HREF, useValue: '/SemilleroHBT' }

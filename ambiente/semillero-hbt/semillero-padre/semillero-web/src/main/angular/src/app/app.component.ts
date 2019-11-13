@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  
-  constructor(private router : Router) {
-  }  
+  private miObjeto: any;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.router.navigate(['bienvenida']);
