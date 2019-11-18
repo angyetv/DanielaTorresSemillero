@@ -1,7 +1,7 @@
 /**
  * Comic.java
  */
-package com.hbt.semillero.entidades;
+package com.hbt.semillero.entidad;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * <b>Descripción:<b> Clase que determina la entidad que permite representar la
  * tabla "DB_SEMILLERO"."COMIC"
  * 
- * @author Angye Daniela Torres.
+ * @author ccastano
  * @version
  */
 @Entity

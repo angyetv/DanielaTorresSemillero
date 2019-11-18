@@ -9,143 +9,127 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hbt.semillero.dto.ComicDTO;
-import com.hbt.semillero.entidades.EstadoEnum;
-import com.hbt.semillero.entidades.TematicaEnum;
+import com.hbt.semillero.entidad.EstadoEnum;
+import com.hbt.semillero.entidad.TematicaEnum;
 
 /**
- * <b>Descripción:<b> Clase que determina la gestion de los comic
+ * <b>Descripción:<b> Clase que determina el uso de metodos para manipular
+ * informacion POJO «Plain Old Java Object», que puede interpretarse como «Un
+ * objeto Java Plano». Es una instancia de una clase que no extiende ni
+ * implementa nada en particular.
  * 
- * @author Angye Daniela Torres
- * @version
+ * @author ccastano
+ * @version 1.0
  */
 public class GestionarComicPOJO {
 
 	/**
-	 * lista que hara las veces de persistencia en un caso de practica
+	 * Lista que permite reunir un conjunto de comics
 	 */
 	private List<ComicDTO> listaComics = null;
 
 	/**
 	 * 
-	 * Metodo encargado de crear un comic a partir de ciertos parametros
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
+	 * Metodo encargado de crear un nuevo comic con informacion por defecto
 	 * 
-	 * @param id
-	 * @param nombre
-	 * @param editorial
-	 * @param tematica
-	 * @param coleccion
-	 * @param numeroPaginas
-	 * @param precio
-	 * @param autores
-	 * @param color
-	 * @param fechaVenta
-	 * @param estado
-	 * @param cantidad
-	 * @return
-	 */
-	public ComicDTO crearComicDTO(String id, String nombre, String editorial, TematicaEnum tematica, String coleccion,
-			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
-			EstadoEnum estado, Long cantidad) {
-		return new ComicDTO(id, nombre, editorial, tematica, coleccion, numeroPaginas, precio, autores, color,
-				fechaVenta, estado, cantidad);
-	}
-	
-	/**
-	 * 
-	 * Metodo encargado de agregar los comics pasados por parametro a listacomics 
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
-	 * 
-	 * @param comicDTO
-	 */
-	public void agregarComicDTOLista(ComicDTO comicDTO) {
-		if (listaComics == null) {
-			listaComics = new ArrayList<ComicDTO>();
-		}
-		listaComics.add(comicDTO);
-	}
-
-	/**
-	 * 
-	 * Metodo encargado de metodo que crear un comic y lo agrega a la lista listacomics
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
+	 * @author ccastano
 	 *
 	 */
 	public void crearComicDTO() {
-		ComicDTO comicDTO = new ComicDTO();
-		comicDTO.setId("100");
-		comicDTO.setNombre("Dragon Ball Yamcha");
-		comicDTO.setEditorial("Planeta Cómic");
-		comicDTO.setTematicaEnum(TematicaEnum.AVENTURAS);
-		comicDTO.setColeccion("Manga Shonen");
-		comicDTO.setNumeroPaginas(100);
-		comicDTO.setPrecio(new BigDecimal(2100));
-		comicDTO.setAutores("Dragon Garow Lee");
-		comicDTO.setColor(Boolean.FALSE);
-		comicDTO.setFechaVenta(LocalDate.now());
-		comicDTO.setEstadoEnum(EstadoEnum.ACTIVO);
-		comicDTO.setCantidad(20L);
+		// Se crea e instancia un objeto de tipo ComicDTO
+		ComicDTO comic = new ComicDTO();
+		TematicaEnum aventuras = TematicaEnum.AVENTURAS;
+		comic.setId("100");
+		comic.setNombre("EL EJÉRCITO DEL CAPITÁN AMÉRICA");
+		comic.setEditorial("Panini Comics ");
+		comic.setTematicaEnum(aventuras);
+		comic.setColeccion("BIBLIOTECA MARVEL ");
+		comic.setNumeroPaginas(128);
+		comic.setPrecio(new BigDecimal(50));
+		comic.setAutores("Phillippe Briones, Roger Stern ");
+		comic.setColor(Boolean.TRUE);
+		comic.setFechaVenta(LocalDate.now());
+		comic.setEstadoEnum(EstadoEnum.ACTIVO);
+		comic.setCantidad(200L);
+
+		// Adicionar el comic creado a la lista de comics
+		// Se valida primero que la lista este inicializada
 		if (listaComics == null) {
 			listaComics = new ArrayList<>();
 		}
-		listaComics.add(comicDTO);
+		// Se adiciona el nuevo elmento a la lista
+		listaComics.add(comic);
 	}
 
 	/**
 	 * 
-	 * Metodo encargado de modificar el nombre de un comic 
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
+	 * Metodo encargado de cambiar el nombre a un comic con el mismo id
 	 * 
-	 * @param id del comic que se desea modificar
-	 * @param nombre nuevo que se asignara al comic
+	 * @author ccastano
+	 * 
+	 * @param comicModificar
 	 */
-	public void modificarComicDTO(String id, String nombre) {
-		ComicDTO comicAModificar = null;
-		for (int i = 0; i < listaComics.size(); i++) {//ciclo que recorre la lista de comics para buscar el comic que se desea editar
-			comicAModificar = listaComics.get(i);
-			if(comicAModificar.getId().equals(id)) {				
-				comicAModificar.setNombre(nombre);	
-				return;
+	public void modificarComicDTO(ComicDTO comicModificar) {
+		// validacion que permite determinar si una lista esta inicializada y tiene
+		// elementos
+		if (listaComics != null && !listaComics.isEmpty()) {
+			int i = 0;
+			// ciclo while que permite recorrerer una lista
+			// iniciando desde cero hasta el tamaño de la lista de comics
+			while (i <= listaComics.size()) {
+				if (listaComics.get(i).getId().equals(comicModificar.getId())) {
+					listaComics.get(i).setNombre(comicModificar.getNombre());
+				}
+				// atributo que permite incrementar el iterador
+				// permite controlar cuando se termine el ciclo o
+				// cuando terminar
+				i++;
 			}
 		}
 	}
-	
+
 	/**
 	 * 
-	 * Metodo encargado de modificar un comic deacuerdo a su posicion en la lista 
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
+	 * Metodo encargado de eliminar un elemento determinado de la lista de comic
 	 * 
-	 * @param i
-	 * @param comicDTO
+	 * @param comicEliminar
 	 */
-	public void modificarComicDTO(int i, ComicDTO comicDTO) {
-		listaComics.set(i, comicDTO);
-	}
-	
-	/**
-	 * 
-	 * Metodo encargado de eliminar un comic de la lista deacuerdo a su id
-	 * <b>Caso de Uso</b>
-	 * @author Angye Daniela Torres
-	 * 
-	 * @param idComic
-	 */
-	public void eliminarComicDTO(String idComic) {
-		int size = this.listaComics.size();
-		int counter = 0;
-		while (counter<=size) {
-			if (this.listaComics.get(counter).getId().equals(idComic)) {
-				this.listaComics.remove(counter);
-				return;
+	public void eliminarComicDTO(ComicDTO comicEliminar) {
+		// validacion que permite determinar si una lista esta inicializada y tiene
+		// elementos
+		if (listaComics != null && !listaComics.isEmpty()) {
+			// ciclo for each
+			for (ComicDTO comicIterar : listaComics) {
+				// validacion del mismo id
+				if (comicIterar.getId().equals(comicEliminar.getId())) {
+					// metodo que permite quitar un elemento de una lista
+					listaComics.remove(comicIterar);
+				}
 			}
-			counter++;
 		}
 	}
+
+	/**
+	 * 
+	 * Metodo encargado de retornar un comic dado un id determinadao
+	 * 
+	 * @param idComic identificador del comic a ser buscado
+	 * @return comic encontrado
+	 */
+	public ComicDTO consultarComicDTO(String idComic) {
+		// validacion que permite determinar si una lista esta inicializada y tiene
+		// elementos
+		if (listaComics != null && !listaComics.isEmpty()) {
+			// ciclo for
+			for (int i = 0; i <= listaComics.size(); i++) {
+				if (listaComics.get(i).getId().equals(idComic)) {
+					return listaComics.get(i);
+				}
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * Metodo encargado de retornar el valor del atributo listaComics
 	 * 
@@ -163,4 +147,5 @@ public class GestionarComicPOJO {
 	public void setListaComics(List<ComicDTO> listaComics) {
 		this.listaComics = listaComics;
 	}
+
 }
