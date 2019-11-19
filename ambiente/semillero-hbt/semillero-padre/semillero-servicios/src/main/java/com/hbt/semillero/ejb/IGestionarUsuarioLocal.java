@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import com.hbt.semillero.dto.PersonaDTO;
 import com.hbt.semillero.dto.UsuarioDTO;
 
 /**
@@ -24,7 +25,7 @@ public interface IGestionarUsuarioLocal {
 	 * @author Angye Daniela Torres.
 	 * @param usuarioNuevo informacion nueva a crear
 	 */
-	public void crearUsuario(UsuarioDTO usuarioNuevo);
+	public void crearUsuario(UsuarioDTO usuarioNuevo) throws Exception;
 
 	/**
 	 * 
@@ -33,16 +34,16 @@ public interface IGestionarUsuarioLocal {
 	 * @author Angye Daniela Torres.
 	 * @param usuarioModificar informacion nueva a modificar
 	 */
-	public void modificarUsuario(Long id, String nombre, UsuarioDTO usuarioNuevo);
+	public UsuarioDTO modificarNombreUsuario(Long id, String nombre, UsuarioDTO usuarioDTONuevo) throws Exception;
 
 	/**
 	 * 
-	 * Metodo encargado de eliminar un Usuario modificarlo y guardarlo
+	 * Metodo encargado de cambiar el estado de un usuario de ACTIVO a INACTIVO
 	 * 
 	 * @author Angye Daniela Torres.
-	 * @param idUsuario informacion a eliminar
+	 * @param idUsuario
 	 */
-	public void eliminarUsuario(Long idUsuario);
+	public UsuarioDTO invalidarUsuario(Long idUsuario);
 
 	/**
 	 * 
@@ -52,13 +53,28 @@ public interface IGestionarUsuarioLocal {
 	 * @return Usuario Resultado de la consulta
 	 * @throws Exception si no se recibe idUsuario
 	 */
-	public UsuarioDTO consultarUsuario(String idUsuario);
+	public UsuarioDTO consultarUsuario(Long idUsuario);
 
 	/**
 	 * 
-	 * Metodo encargado de retornar una lista de Usuarios
+	 * Metodo encargado de retornar una lista de Usuarios con estado activo.
 	 * 
-	 * @return
+	 * @return Lista de usuarios creados.
 	 */
 	public List<UsuarioDTO> consultarUsuarios();
+
+	/**
+	 * Metodo encargado de crear una nueva persona <b>Caso de Uso</b>
+	 * 
+	 * @param personaDTO
+	 */
+	public void crearPersona(PersonaDTO personaDTO);
+
+	/**
+	 * Metodo encargado de consultar la lista de personas agregadas. <b>Caso de
+	 * Uso</b>
+	 * 
+	 * @return lista de personas.
+	 */
+	public List<PersonaDTO> consultarPersonas();
 }

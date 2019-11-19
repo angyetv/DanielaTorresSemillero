@@ -1,5 +1,5 @@
 import { Injector } from "@angular/core";
-import { Response, RequestOptionsArgs, Headers } from "@angular/http";
+import {  RequestOptionsArgs } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { RequestOptions } from "@angular/http";
 import { Http } from "@angular/http";

@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
 	private String nombre;
 	private LocalDate fechaCreacion;
 	private EstadoEnum estadoEnum;
-	private Long suIdPersona;
+	private Persona suIdPersona;
 
 	public Usuario() {
 	}
@@ -124,7 +124,7 @@ public class Usuario implements Serializable {
 	 * @return El estado asociado a la clase
 	 */
 	@Column(name = "SUIDPERSONA")
-	public Long getSuIdPersona() {
+	public Persona getSuIdPersona() {
 		return suIdPersona;
 	}
 
@@ -133,7 +133,7 @@ public class Usuario implements Serializable {
 	 * 
 	 * @param suIdPersona
 	 */
-	public void setSuIdPersona(Long suIdPersona) {
+	public void setSuIdPersona(Persona suIdPersona) {
 		this.suIdPersona = suIdPersona;
 	}
 

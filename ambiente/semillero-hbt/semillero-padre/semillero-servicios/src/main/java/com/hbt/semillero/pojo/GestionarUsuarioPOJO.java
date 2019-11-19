@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hbt.semillero.dto.PersonaDTO;
 import com.hbt.semillero.dto.UsuarioDTO;
 import com.hbt.semillero.entidad.EstadoEnum;
 
@@ -36,7 +37,7 @@ public class GestionarUsuarioPOJO {
 		usuario.setNombre("D1iana");
 		usuario.setFechaCreacion(LocalDate.now());
 		usuario.setEstadoEnum(EstadoEnum.ACTIVO);
-		usuario.setSuIdPersona("100");
+		usuario.setSuIdPersona(new PersonaDTO());
 
 		// Adicionar el usuario creado a la lista de usuarios
 		// Se valida primero que la lista este inicializada

@@ -22,12 +22,30 @@ public class UsuarioDTO implements Serializable {
 	private String nombre;
 	private LocalDate fechaCreacion;
 	private EstadoEnum estadoEnum;
-	private String suIdPersona;
+	private PersonaDTO suIdPersona;
 
 	/**
 	 * Constructor vacio.
 	 */
 	public UsuarioDTO() {
+	}
+
+	/**
+	 * Constructor de la clase.
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param fechaCreacion
+	 * @param estadoEnum
+	 * @param suIdPersona
+	 */
+	public UsuarioDTO(String id, String nombre, LocalDate fechaCreacion, EstadoEnum estadoEnum,
+			PersonaDTO suIdPersona) {
+		this.id = id;
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
+		this.estadoEnum = estadoEnum;
+		this.suIdPersona = suIdPersona;
 	}
 
 	/**
@@ -107,7 +125,7 @@ public class UsuarioDTO implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getSuIdPersona() {
+	public PersonaDTO getSuIdPersona() {
 		return suIdPersona;
 	}
 
@@ -116,7 +134,7 @@ public class UsuarioDTO implements Serializable {
 	 * 
 	 * @param suIdPersona
 	 */
-	public void setSuIdPersona(String suIdPersona) {
+	public void setSuIdPersona(PersonaDTO suIdPersona) {
 		this.suIdPersona = suIdPersona;
 	}
 
